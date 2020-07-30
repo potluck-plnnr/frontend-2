@@ -35,14 +35,14 @@ let PotluckList = () => {
             {data.date} | {data.time}
           </h3>
           <p>{data.items}</p>
-          <span
+          <button
             onClick={(e) => {
               e.stopPropagation();
               deletePotluck(data);
             }}
           >
             Delete Event
-          </span>
+          </button>
         </div>
       ))}
     </div>

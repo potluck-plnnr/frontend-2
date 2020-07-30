@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Input from "../Utilities/ChangeInput";
 import Auth from "../Utilities/AxiosWithAuth";
 
 let Register = () => {
-  let [username, setUsername] = Input("");
-  let [password, setPassword] = Input("");
+  let [setNewUser] = useState([]);
+  let [userName, setUsername] = Input("");
+  let [pass, setPassword] = Input("");
+
+  useEffect(() => {
+    Auth()
+      .get("/register")
+      .then((response) => {
+        console.log(response);
+        setNewUser(response);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   let handleSubmit = (e) => {
     e.preventDefault();
 
-    let data = {
-      username: username,
-      password: password,
+    let userData = {
+      username: userName,
+      password: pass,
     };
 
-    Auth.post("/register", data)
-      .then((response) => console.log(response))
+    setUsername("");
+    setPassword("");
+
+    Auth()
+      .post("/register", userData)
+      .then((response) => {
+        console.log(response, "post");
+        setNewUser(response.userData);
+      })
       .catch((error) => console.log(error));
   };
 
@@ -26,13 +44,13 @@ let Register = () => {
           type="text"
           placeholder="username"
           onChange={(e) => setUsername(e.target.value)}
-          value={username}
+          value={userName}
         />
         <input
           type="text"
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
-          value={password}
+          value={pass}
         />
         <button type="submit">Register</button>
       </form>
