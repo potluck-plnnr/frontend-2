@@ -1,12 +1,13 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Auth from "../../Utilities/AxiosWithAuth";
 import Input from "../../Utilities/ChangeInput";
 
-let Attending = (props) => {
+let Attending = () => {
   let [guest, setGuest] = Input("");
 
   useEffect(() => {
-    Auth.get("https://backend-bw.herokuapp.com/guests")
+    Auth()
+      .get("/guests")
       .then((response) => {
         console.log(response);
         setGuest(response);

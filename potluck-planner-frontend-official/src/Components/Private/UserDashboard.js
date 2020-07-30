@@ -3,8 +3,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import List from "./PotluckListAll";
-// import Attending from "./PotluckAttending";
-// import Create from "./PotluckCreate";
 
 let PotluckDashboard = () => {
   let history = useHistory();
@@ -17,8 +15,8 @@ const logOut = () => {
   return (
     <div>
       <List />
-      {/* <Attending /> */}
-      {/* <Create /> */}
+      {/* GUESTFORM HERE */}
+      {/* POTLUCK HERE */}
       <button onClick={logOut}>Log Out</button>
     </div>
   );

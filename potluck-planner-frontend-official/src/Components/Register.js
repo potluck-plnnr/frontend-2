@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Input from "../Utilities/ChangeInput";
 import Auth from "../Utilities/AxiosWithAuth";
+import { useHistory } from "react-router-dom";
 
 let Register = () => {
   let [setNewUser] = useState([]);
   let [userName, setUsername] = Input("");
   let [pass, setPassword] = Input("");
+  let history = useHistory();
 
   useEffect(() => {
     Auth()
@@ -33,6 +35,7 @@ let Register = () => {
       .then((response) => {
         console.log(response, "post");
         setNewUser(response.userData);
+        history.push("/protected");
       })
       .catch((error) => console.log(error));
   };
