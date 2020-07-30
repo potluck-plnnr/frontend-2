@@ -36,3 +36,45 @@
     transform: rotate(360deg);
   }
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.attendee {
+  display: flex;
+  justify-content: center;
+}
+
+.potluck {
+  background-color: burlywood;
+  height: 700px;
+}
+
+body {
+  background-image:url(https://potluckplanner-git-master.build-week1.vercel.app/images/potluck2.jpg);
+  background-size: 60vh;
+  background-position: center;
+}
+
+input {
+  margin: 0 20%;
+  text-align: center;
+}
+
+input.appetizer {
+  margin: 0 2%;
+}
+
+input.entree {
+  margin: 0 2%;
+}
+
+input.side {
+  margin: 0 2%;
+}
+
+input.dessert {
+  margin: 0 2%;
+}

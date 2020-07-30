@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./App.css"
 import Login from "./Components/Login";
 import UserDash from "./Components/Private/UserDashboard";
 import Private from "./Utilities/PrivateRoute";
